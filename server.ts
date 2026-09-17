@@ -19,10 +19,10 @@ app.use(
 app.use(express.static(path.join(process.cwd(), 'public')));
 
 // Routes
-import authRouter from '../src/routes/auth';
-import userRouter from '../src/routes/userRoutes';
-import reviewRouter from '../src/routes/reviewRoutes';
-import bookRouter from '../src/routes/bookRoutes';
+import authRouter from './src/routes/auth';
+import userRouter from './src/routes/userRoutes';
+import reviewRouter from './src/routes/reviewRoutes';
+import bookRouter from './src/routes/bookRoutes';
 app.use('/api/auth', authRouter);
 app.use('/api/users', userRouter);
 app.use('/api/reviews', reviewRouter);
