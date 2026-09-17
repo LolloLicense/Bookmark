@@ -1,0 +1,150 @@
+/* =========================
+   General
+========================= */
+
+body {
+  font-family: 'Geologica', sans-serif;
+  color: #f5eeee;
+  min-height: 100vh;
+  margin: 0;
+  background: linear-gradient(180deg, #080808 0%, #181818 35%, #303030 70%, #505050 100%);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.user-modal .modal-content,
+.delete-account-modal .modal-content {
+  background: linear-gradient(180deg, #080808 0%, #181818 35%, #303030 70%, #505050 100%);
+
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+.modal-backdrop {
+  backdrop-filter: blur(8px);
+  background-color: rgba(0, 0, 0, 0.3);
+  opacity: 1;
+}
+
+.btn:focus-visible {
+  outline: 2px solid blue;
+
+  outline-offset: 3px;
+}
+
+.link-hover:hover {
+  font-weight: bold;
+}
+
+.search-input::placeholder {
+  color: white;
+}
+
+.table {
+  --bs-table-bg: transparent;
+  --bs-table-color: #f5eeee;
+}
+tbody,
+td,
+tfoot,
+th,
+tr {
+  border-style: none;
+}
+
+.max-width-form {
+  max-width: 30rem;
+}
+
+/* =========================
+   Books card
+========================= */
+
+/* Book images */
+.card-img-top {
+  aspect-ratio: 2 / 3;
+}
+.book-info {
+  display: grid;
+  grid-template-rows: 3.8rem 4rem 2.5rem 4.5rem;
+}
+
+/* =========================
+   Book page
+========================= */
+
+.book-details-card {
+  background: rgba(8, 11, 12, 0.35);
+
+  display: grid;
+  grid-template-columns: 40% 60%;
+  gap: 35px;
+}
+
+.book-detail-image {
+  max-width: 380px;
+  aspect-ratio: 2 / 3;
+}
+
+/* =========================
+   Media querys
+========================= */
+@media (max-width: 900px) {
+  .book-details-card {
+    display: block;
+    padding: 25px;
+  }
+
+  .book-image-container {
+    margin-bottom: 30px;
+  }
+
+  .book-info {
+    padding: 0;
+  }
+
+  .book-detail-image {
+    max-width: 320px;
+  }
+
+  .book-detail-title {
+    font-size: 2rem;
+  }
+}
+
+@media (max-width: 576px) {
+  h1 {
+    font-size: 1.5rem;
+  }
+  h2 {
+    font-size: 1.2rem;
+  }
+  .fs-6 {
+    font-size: 0.9rem !important;
+  }
+  .btn {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.875rem;
+  }
+  .table-book-title {
+    font-size: 1rem !important;
+  }
+  .user-table-headings {
+    font-size: 1rem !important;
+  }
+  .book-details-card {
+    padding: 20px;
+  }
+
+  .book-image-container {
+    margin-bottom: 25px;
+  }
+
+  .book-detail-image {
+    max-width: 260px;
+  }
+
+  .book-detail-title {
+    font-size: 1.7rem;
+  }
+}

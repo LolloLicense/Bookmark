@@ -1,0 +1,310 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Explore books, discover new reads and share reviews with the Bookmark community."
+    />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <title>Bookmark</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,0&display=swap"
+      rel="stylesheet"
+    />
+  </head>
+
+  <body>
+    <main class="container">
+      <!-- SITE HEADER -->
+      <nav class="site-header mt-4 d-flex justify-content-between">
+        <!-- LOGO-LINK -->
+        <div class="brand d-flex align-items-center gap-1">
+          <a href="/" class="logo d-flex align-items-center gap-2 text-decoration-none text-white">
+            <svg width="26" height="26" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M38 12C37.596 12 28.3 12.058 20 16.016C11.7 12.058 2.404 12 2 12C1.46957 12 0.960859 12.2107 0.585786 12.5858C0.210714 12.9609 0 13.4696 0 14V33.766C2.61264e-06 34.0344 0.0540111 34.3 0.158809 34.547C0.263606 34.7941 0.41705 35.0175 0.61 35.204C1 35.58 1.57 35.814 2.068 35.764L2.322 35.762C3.688 35.762 10.914 35.958 19.154 39.812C19.186 39.828 19.222 39.822 19.254 39.834C19.492 39.932 19.742 40 20 40C20.258 40 20.508 39.932 20.748 39.834C20.78 39.822 20.816 39.828 20.848 39.812C29.088 35.956 36.314 35.762 37.68 35.762L37.934 35.764C38.41 35.814 39 35.58 39.392 35.204C39.78 34.826 40 34.306 40 33.766V14C40 13.4696 39.7893 12.9609 39.4142 12.5858C39.0391 12.2107 38.5304 12 38 12ZM4 16.098C6.97 16.32 12.762 17.058 18 19.482V34.966C12 32.616 6.82 31.978 4 31.814V16.098ZM36 31.814C33.18 31.978 28 32.616 22 34.966V19.482C27.238 17.058 33.03 16.32 36 16.098V31.814Z"
+                fill="#F5EEEE"
+              />
+              <path
+                d="M20 12C23.3137 12 26 9.31371 26 6C26 2.68629 23.3137 0 20 0C16.6863 0 14 2.68629 14 6C14 9.31371 16.6863 12 20 12Z"
+                fill="#F5EEEE"
+              />
+            </svg>
+
+            <span class="m-0 lh-1 text-uppercase fs-1">Bookmark</span>
+          </a>
+        </div>
+        <!-- LOGIN BTN -->
+        <button
+          aria-label="Log in"
+          id="login-btn"
+          class="border-0 bg-transparent"
+          data-bs-toggle="modal"
+          data-bs-target="#login-modal"
+        >
+          <svg width="24" height="24" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M15 0C6.72 0 0 6.72 0 15C0 23.28 6.72 30 15 30C23.28 30 30 23.28 30 15C30 6.72 23.28 0 15 0ZM15 27C12.39 27 9.99 26.16 8.025 24.75C9.99 23.34 12.39 22.5 15 22.5C17.61 22.5 20.01 23.34 21.975 24.75C20.01 26.16 17.61 27 15 27ZM24.21 22.68C21.5823 20.6193 18.3394 19.4994 15 19.4994C11.6606 19.4994 8.41774 20.6193 5.79 22.68C3.98572 20.5278 2.99784 17.8085 3 15C3 8.37 8.37 3 15 3C21.63 3 27 8.37 27 15C27 17.925 25.95 20.595 24.21 22.68Z"
+              fill="#F5EEEE"
+            />
+            <path
+              d="M15 5.89499C12.105 5.89499 9.75 8.24999 9.75 11.145C9.75 14.04 12.105 16.395 15 16.395C17.895 16.395 20.25 14.04 20.25 11.145C20.25 8.24999 17.895 5.89499 15 5.89499ZM15 13.395C13.755 13.395 12.75 12.39 12.75 11.145C12.75 9.89999 13.755 8.89499 15 8.89499C16.245 8.89499 17.25 9.89999 17.25 11.145C17.25 12.39 16.245 13.395 15 13.395Z"
+              fill="white"
+            />
+          </svg>
+        </button>
+        <!-- MODAL -->
+        <div class="user-modal modal" id="login-modal" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <!-- AUTH content -->
+              <div id="auth-content">
+                <!-- LOGIN -->
+                <div class="modal-header border-0">
+                  <h2 class="modal-title">Login</h2>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+
+                <div class="modal-body">
+                  <form id="login-form">
+                    <input id="login-username" type="text" class="form-control mb-3" placeholder="Username" />
+                    <div class="d-flex align-items-center gap-2 mb-3">
+                      <input id="login-password" type="password" class="form-control" placeholder="Password" />
+                      <button type="button" class="btn toggle-password" aria-label="Show password">
+                        <!-- show -->
+                        <svg
+                          class="eye-open"
+                          width="19"
+                          height="14"
+                          viewBox="0 0 15 10"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M7.18143 2.85712C6.61427 2.86086 6.07139 3.08783 5.67034 3.48888C5.26928 3.88994 5.04232 4.43281 5.03857 4.99997C5.03857 6.17283 6.00857 7.14283 7.18143 7.14283C8.35429 7.14283 9.32429 6.17283 9.32429 4.99997C9.32429 3.82712 8.35357 2.85712 7.18143 2.85712Z"
+                            fill="#DFEDF2"
+                          />
+                          <path
+                            d="M7.18143 0C1.72929 0 0.0907143 4.72643 0.0757143 4.77429L0 5L0.0750001 5.22571C0.0907144 5.27357 1.72929 10 7.18143 10C12.6336 10 14.2721 5.27357 14.2871 5.22571L14.3629 5L14.2879 4.77429C14.2721 4.72643 12.6336 0 7.18143 0ZM7.18143 8.57143C3.35929 8.57143 1.87857 5.82429 1.52 5C1.88 4.17286 3.36143 1.42857 7.18143 1.42857C11.0036 1.42857 12.4843 4.17571 12.8429 5C12.4829 5.82714 11.0014 8.57143 7.18143 8.57143Z"
+                            fill="#DFEDF2"
+                          />
+                        </svg>
+                        <!-- hide -->
+                        <svg
+                          class="eye-closed d-none"
+                          width="15"
+                          height="14"
+                          viewBox="0 0 15 14"
+                          fill="none"
+                          xmlns="http://www.w3.org/2000/svg"
+                        >
+                          <path
+                            d="M7.17964 11.9957C7.85888 11.9957 8.47923 11.9218 9.04502 11.794L7.78348 10.5324C7.58747 10.5475 7.38858 10.5597 7.17964 10.5597C3.33759 10.5597 1.84916 7.79827 1.48872 6.96969C1.75891 6.36546 2.1245 5.8086 2.57147 5.32043L1.5677 4.31666C0.463407 5.51357 0.044809 6.71911 0.0369109 6.7428C-0.0123036 6.8903 -0.0123036 7.0498 0.0369109 7.1973C0.0519891 7.24469 1.6991 11.9957 7.17964 11.9957ZM7.17964 1.94364C5.86066 1.94364 4.77719 2.22797 3.87394 2.64801L1.22521 0L0.20995 1.01526L13.1341 13.9394L14.1493 12.9241L11.7663 10.5411C13.6431 9.14022 14.313 7.22745 14.3231 7.1973C14.3723 7.0498 14.3723 6.8903 14.3231 6.7428C14.3073 6.69469 12.6602 1.94364 7.17964 1.94364ZM10.7496 9.52436L9.11251 7.8873C9.24894 7.60728 9.33366 7.29926 9.33366 6.96969C9.33366 5.79144 8.35789 4.81567 7.17964 4.81567C6.85008 4.81567 6.54205 4.90039 6.26275 5.03753L4.96459 3.73938C5.67736 3.49537 6.42628 3.37375 7.17964 3.37966C11.0217 3.37966 12.5101 6.14111 12.8706 6.96969C12.6537 7.46655 12.0334 8.65126 10.7496 9.52436Z"
+                            fill="#DFEDF2"
+                          />
+                        </svg>
+                      </button>
+                    </div>
+                    <p id="login-message"></p>
+                    <button type="submit" class="btn btn-light">Login</button>
+                  </form>
+                </div>
+
+                <!-- REGISTER -->
+                <div class="modal-header mt-4 border-0">
+                  <h2 class="modal-title">Create new account</h2>
+                </div>
+                <div class="modal-body">
+                  <form id="register-form">
+                    <input id="register-username" type="text" class="form-control mb-3" placeholder="Username" />
+                    <p id="username-error" class="text-danger"></p>
+                    <input id="register-password" type="password" class="form-control mb-3" placeholder="Password" />
+                    <p id="password-error" class="text-danger"></p>
+                    <p id="register-message"></p>
+                    <button type="submit" class="btn btn-light">Register</button>
+                  </form>
+                </div>
+              </div>
+
+              <!-- LOGGED IN ACCOUNT -->
+              <div id="account-content" class="d-none">
+                <div class="modal-header border-bottom-0 mt-4">
+                  <h2 class="modal-title">My account</h2>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body pb-5">
+                  <!-- link list -->
+                  <ul class="list-unstyled d-flex flex-column gap-1">
+                    <li>
+                      <a href="settings.html" class="link-hover d-block text-decoration-none text-reset">Settings</a>
+                    </li>
+                    <li>
+                      <a href="library.html" class="link-hover admin-menu-item d-none text-decoration-none text-reset"
+                        >Book library</a
+                      >
+                    </li>
+                    <li>
+                      <a href="users.html" class="link-hover admin-menu-item d-none text-decoration-none text-reset"
+                        >All users</a
+                      >
+                    </li>
+                  </ul>
+                  <!-- log out button -->
+                  <div class="d-flex justify-content-center mt-4">
+                    <button id="logout-btn" class="btn btn-outline-light">Log out</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      <div id="welcome-message" class="d-none mt-5">
+        <div class="d-flex gap-2 justify-content-center">
+          <svg width="24" height="26" viewBox="0 0 24 26" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M12.7827 11.557L7.92585 6.59312C7.74706 6.41647 7.60448 6.20519 7.50644 5.97162C7.40839 5.73805 7.35684 5.48686 7.3548 5.23271C7.35276 4.97856 7.40026 4.72654 7.49454 4.49135C7.58881 4.25616 7.72797 4.04252 7.9039 3.86289C8.07983 3.68325 8.289 3.54123 8.51921 3.4451C8.74941 3.34897 8.99605 3.30066 9.24472 3.30298C9.49339 3.30531 9.73912 3.35823 9.96756 3.45865C10.196 3.55908 10.4026 3.70499 10.5753 3.88789L17.1964 10.6548C16.7556 6.5944 17.1964 5.24051 19.8445 4.33834L22.5514 12.6352C23.0648 14.2091 23.1393 15.8979 22.7664 17.5126C22.3935 19.1272 21.5879 20.6038 20.4401 21.7769L19.8445 22.3843C18.2055 24.0592 15.9826 25.0002 13.6648 25.0002C11.347 25.0002 9.12413 24.0592 7.48511 22.3843L4.83693 19.6778M7.48386 16.9687L2.62699 12.0036C2.45091 11.8268 2.31082 11.6162 2.2148 11.3839C2.11879 11.1515 2.06875 10.902 2.06758 10.6498C2.06641 10.3975 2.11413 10.1476 2.20797 9.91428C2.30182 9.681 2.43995 9.46902 2.61438 9.29058C2.78881 9.11214 2.99609 8.97077 3.22426 8.87464C3.45242 8.7785 3.69696 8.7295 3.94376 8.73046C4.19055 8.73142 4.43472 8.78232 4.66216 8.88023C4.88961 8.97814 5.09583 9.12111 5.26893 9.3009L9.24432 13.3639M9.24931 13.3613L3.51096 7.49401C3.33733 7.31664 3.19957 7.10604 3.10557 6.87426C3.01157 6.64247 2.96316 6.39403 2.9631 6.14313C2.96298 5.63639 3.15983 5.15037 3.51034 4.79197C3.86085 4.43358 4.3363 4.23216 4.83212 4.23204C5.32793 4.23192 5.80348 4.43311 6.15415 4.79134L12.7777 11.5608M6.01306 20.8798L2.62574 17.4179C2.45218 17.2404 2.31453 17.0298 2.22063 16.7979C2.12674 16.5661 2.07844 16.3176 2.0785 16.0667C2.07862 15.56 2.27569 15.0741 2.62636 14.7158C2.97704 14.3576 3.45259 14.1564 3.9484 14.1565C4.44421 14.1567 4.91967 14.3581 5.27017 14.7165L7.48011 16.9751M4.06907 23.8645C3.30205 23.7319 2.59444 23.3586 2.04448 22.7963C1.49453 22.234 1.12952 21.5106 1.00012 20.7267M13.4345 1.00018C13.9783 1.09426 14.495 1.30992 14.9479 1.63176C15.4007 1.95359 15.7784 2.37365 16.0539 2.86194"
+              stroke="#DFEDF2"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </svg>
+          <p class="text-uppercase m-0 d-flex justify-content-center align-center"></p>
+        </div>
+      </div>
+
+      <!-- BOOKS -->
+      <section class="container mt-5">
+        <div class="section-header d-flex justify-content-between mb-5 align-items-center flex-wrap flex-md-nowrap">
+          <h2 class="">Explore our library</h2>
+          <div class="right-header-content d-flex gap-3 align-items-center">
+            <!-- Search form -->
+            <form id="search-form">
+              <div class="input-group-sm flex-nowrap d-flex">
+                <span class="input-group-text bg-transparent border-0"
+                  ><svg width="20" height="20" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path
+                      d="M8.5 16.99C10.48 16.99 12.31 16.3 13.75 15.16L18 19.41L19.41 18L15.16 13.75C16.3433 12.2558 16.9881 10.4061 16.99 8.5C16.99 3.81 13.18 0 8.49 0C3.8 0 0 3.8 0 8.49C0 13.18 3.81 16.99 8.5 16.99ZM8.5 1.99C12.08 1.99 15 4.91 15 8.49C15 12.07 12.08 14.99 8.5 14.99C4.92 14.99 2 12.07 2 8.49C2 4.91 4.92 1.99 8.5 1.99Z"
+                      fill="#DFEDF2"
+                    /></svg
+                ></span>
+                <input
+                  class="form-control search-input text-white bg-transparent"
+                  id="search-input"
+                  placeholder="Search book"
+                  type="search"
+                />
+              </div>
+            </form>
+            <!-- Sort button -->
+            <button type="button" id="sort-btn" class="btn" aria-label="Sort books alphabetically">
+              <!-- asc -->
+              <svg
+                id="sort-asc-icon"
+                width="19"
+                height="20"
+                viewBox="0 0 19 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M13.7003 6.32289L13.0331 8.51139H11.3314L14.1872 0H16.157L19 8.51139H17.2121L16.5433 6.32289H13.7003ZM16.2065 5.0698L15.1657 1.62661H15.0907L14.0499 5.0698H16.2065Z"
+                  fill="#DFEDF2"
+                />
+                <path
+                  d="M18.2945 19.6854H12.0179V18.5824L16.1347 12.6442V12.558H12.1296V11.174H18.1716V12.277L14.0739 18.2152V18.3014H18.2961L18.2945 19.6854ZM4.78987 1.32811C4.78987 1.11643 4.70578 0.91342 4.5561 0.763739C4.40642 0.614058 4.20341 0.529968 3.99173 0.529968C3.78005 0.529968 3.57704 0.614058 3.42736 0.763739C3.27768 0.91342 3.19359 1.11643 3.19359 1.32811V16.9605L1.36424 15.1296C1.29003 15.0554 1.20193 14.9965 1.10497 14.9564C1.00802 14.9162 0.904099 14.8955 0.799152 14.8955C0.694206 14.8955 0.590288 14.9162 0.49333 14.9564C0.396372 14.9965 0.308275 15.0554 0.234066 15.1296C0.159858 15.2038 0.100993 15.2919 0.0608317 15.3889C0.0206706 15.4858 0 15.5897 0 15.6947C0 15.7996 0.0206706 15.9035 0.0608317 16.0005C0.100993 16.0975 0.159858 16.1856 0.234066 16.2598L3.42664 19.4507L3.43782 19.4619C3.58767 19.608 3.7892 19.689 3.99849 19.6872C4.20779 19.6854 4.40789 19.601 4.55522 19.4523L7.7478 16.2598C7.89767 16.1101 7.98195 15.907 7.9821 15.6952C7.98225 15.4834 7.89825 15.2803 7.74859 15.1304C7.59894 14.9805 7.39587 14.8962 7.18407 14.8961C6.97227 14.8959 6.76909 14.9799 6.61922 15.1296L4.78987 16.9605V1.32811Z"
+                  fill="#DFEDF2"
+                />
+              </svg>
+              <!-- desc -->
+              <svg
+                id="sort-desc-icon"
+                class="d-none"
+                width="19"
+                height="20"
+                viewBox="0 0 19 20"
+                fill="none"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  d="M18.2945 8.51139H12.0179V7.40836L16.1348 1.47018V1.38398H12.1297V0H18.1716V1.10303L14.074 7.04122V7.12742H18.2961L18.2945 8.51139Z"
+                  fill="#DFEDF2"
+                />
+                <path
+                  fill-rule="evenodd"
+                  clip-rule="evenodd"
+                  d="M13.7003 17.4969L13.0331 19.6854H11.3314L14.1872 11.174H16.157L19 19.6854H17.2121L16.5433 17.4969H13.7003ZM16.2065 16.2438L15.1657 12.8022H15.0907L14.0499 16.2438H16.2065Z"
+                  fill="#DFEDF2"
+                />
+                <path
+                  d="M4.78987 18.8872C4.78987 19.0989 4.70578 19.3019 4.55609 19.4516C4.40641 19.6013 4.2034 19.6854 3.99172 19.6854C3.78004 19.6854 3.57703 19.6013 3.42735 19.4516C3.27767 19.3019 3.19358 19.0989 3.19358 18.8872V3.25482L1.36424 5.08576C1.29003 5.15996 1.20193 5.21883 1.10497 5.25899C1.00802 5.29915 0.904097 5.31982 0.799151 5.31982C0.694205 5.31982 0.590287 5.29915 0.493329 5.25899C0.396372 5.21883 0.308274 5.15996 0.234066 5.08576C0.159858 5.01155 0.100993 4.92345 0.0608316 4.82649C0.0206705 4.72953 -1.7484e-09 4.62562 0 4.52067C1.7484e-09 4.41572 0.0206705 4.31181 0.0608316 4.21485C0.100993 4.11789 0.159858 4.02979 0.234066 3.95558L3.42664 0.76461L3.43781 0.753436C3.58826 0.608467 3.78955 0.528268 3.99847 0.530059C4.20739 0.531849 4.40727 0.615487 4.55521 0.763014L7.74778 3.95558C7.82199 4.02969 7.88088 4.11768 7.92108 4.21454C7.96128 4.3114 7.98201 4.41523 7.98208 4.52011C7.98216 4.62498 7.96157 4.72884 7.92151 4.82575C7.88145 4.92267 7.82268 5.01075 7.74858 5.08496C7.67448 5.15916 7.58648 5.21805 7.48962 5.25825C7.39276 5.29845 7.28893 5.31918 7.18406 5.31926C7.07919 5.31933 6.97533 5.29875 6.87841 5.25868C6.78149 5.21862 6.69342 5.15986 6.61921 5.08576L4.78987 3.25482V18.8872Z"
+                  fill="#DFEDF2"
+                />
+              </svg>
+            </button>
+          </div>
+        </div>
+        <div id="books-list" class="row">
+          <!-- Books.js will be added here with JavaScript -->
+        </div>
+      </section>
+
+      <!-- BOOK MODAL -->
+      <div class="modal fade" id="bookModal" tabindex="-1" aria-labelledby="bookModalLabel" aria-hidden="true">
+        <div class="modal-dialog modal-lg modal-dialog-centered">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h2 class="modal-title" id="bookModalLabel">Book</h2>
+
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+
+            <div class="modal-body" id="book-details">
+              <!-- Book information will be displayed here -->
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="site-footer mt-5 py-4 border-top">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-md-6">
+            <h2 class="m-0 lh-1 text-uppercase">Bookmark</h2>
+            <p class="mb-0 mt-2">Discover your next favorite book.</p>
+          </div>
+
+          <div class="col-md-6 text-md-end mt-3 mt-md-0">
+            <p class="mb-0">&copy; 2026 Bookmark</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+      crossorigin="anonymous"
+    ></script>
+    <script src="js/functions.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/register.js"></script>
+    <script src="js/logout.js"></script>
+    <script src="js/books.js"></script>
+  </body>
+</html>

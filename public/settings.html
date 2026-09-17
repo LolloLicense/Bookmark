@@ -1,0 +1,241 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" href="/images/favicon.png" />
+    <title>Bookmark - Settings</title>
+    <meta name="description" content="View and manage your Bookmark account settings." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH"
+      crossorigin="anonymous"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Geologica:wght,CRSV@100..900,0&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <main class="container">
+      <!-- SITE HEADER -->
+      <nav class="site-header mt-4 d-flex justify-content-between">
+        <!-- LOGO-LINK -->
+        <div class="brand d-flex align-items-center gap-1">
+          <a href="/" class="logo d-flex align-items-center gap-2 text-decoration-none text-white">
+            <svg width="26" height="26" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path
+                d="M38 12C37.596 12 28.3 12.058 20 16.016C11.7 12.058 2.404 12 2 12C1.46957 12 0.960859 12.2107 0.585786 12.5858C0.210714 12.9609 0 13.4696 0 14V33.766C2.61264e-06 34.0344 0.0540111 34.3 0.158809 34.547C0.263606 34.7941 0.41705 35.0175 0.61 35.204C1 35.58 1.57 35.814 2.068 35.764L2.322 35.762C3.688 35.762 10.914 35.958 19.154 39.812C19.186 39.828 19.222 39.822 19.254 39.834C19.492 39.932 19.742 40 20 40C20.258 40 20.508 39.932 20.748 39.834C20.78 39.822 20.816 39.828 20.848 39.812C29.088 35.956 36.314 35.762 37.68 35.762L37.934 35.764C38.41 35.814 39 35.58 39.392 35.204C39.78 34.826 40 34.306 40 33.766V14C40 13.4696 39.7893 12.9609 39.4142 12.5858C39.0391 12.2107 38.5304 12 38 12ZM4 16.098C6.97 16.32 12.762 17.058 18 19.482V34.966C12 32.616 6.82 31.978 4 31.814V16.098ZM36 31.814C33.18 31.978 28 32.616 22 34.966V19.482C27.238 17.058 33.03 16.32 36 16.098V31.814Z"
+                fill="#F5EEEE"
+              />
+              <path
+                d="M20 12C23.3137 12 26 9.31371 26 6C26 2.68629 23.3137 0 20 0C16.6863 0 14 2.68629 14 6C14 9.31371 16.6863 12 20 12Z"
+                fill="#F5EEEE"
+              />
+            </svg>
+
+            <span class="m-0 lh-1 text-uppercase fs-1">Bookmark</span>
+          </a>
+        </div>
+        <!-- LOGIN BTN -->
+        <button
+          id="login-btn"
+          class="border-0 bg-transparent"
+          aria-label="Log in"
+          data-bs-toggle="modal"
+          data-bs-target="#login-modal"
+        >
+          <svg width="24" height="24" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M15 0C6.72 0 0 6.72 0 15C0 23.28 6.72 30 15 30C23.28 30 30 23.28 30 15C30 6.72 23.28 0 15 0ZM15 27C12.39 27 9.99 26.16 8.025 24.75C9.99 23.34 12.39 22.5 15 22.5C17.61 22.5 20.01 23.34 21.975 24.75C20.01 26.16 17.61 27 15 27ZM24.21 22.68C21.5823 20.6193 18.3394 19.4994 15 19.4994C11.6606 19.4994 8.41774 20.6193 5.79 22.68C3.98572 20.5278 2.99784 17.8085 3 15C3 8.37 8.37 3 15 3C21.63 3 27 8.37 27 15C27 17.925 25.95 20.595 24.21 22.68Z"
+              fill="#F5EEEE"
+            />
+            <path
+              d="M15 5.89499C12.105 5.89499 9.75 8.24999 9.75 11.145C9.75 14.04 12.105 16.395 15 16.395C17.895 16.395 20.25 14.04 20.25 11.145C20.25 8.24999 17.895 5.89499 15 5.89499ZM15 13.395C13.755 13.395 12.75 12.39 12.75 11.145C12.75 9.89999 13.755 8.89499 15 8.89499C16.245 8.89499 17.25 9.89999 17.25 11.145C17.25 12.39 16.245 13.395 15 13.395Z"
+              fill="white"
+            />
+          </svg>
+        </button>
+        <!-- MODAL -->
+        <div class="user-modal modal" id="login-modal" tabindex="-1" aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered">
+            <div class="modal-content">
+              <!-- AUTH content -->
+              <div id="auth-content">
+                <!-- LOGIN -->
+                <div class="modal-header border-0">
+                  <h2 class="modal-title">Login</h2>
+                  <button
+                    type="button"
+                    class="btn-close btn-close-white"
+                    aria-label="Close"
+                    data-bs-dismiss="modal"
+                  ></button>
+                </div>
+
+                <div class="modal-body">
+                  <form id="login-form">
+                    <input id="login-username" type="text" class="form-control mb-3" placeholder="Username" />
+                    <input id="login-password" type="password" class="form-control mb-3" placeholder="Password" />
+                    <p id="login-message"></p>
+                    <button type="submit" class="btn btn-light">Login</button>
+                  </form>
+                </div>
+
+                <!-- REGISTER -->
+                <div class="modal-header mt-4 border-0">
+                  <h2 class="modal-title">Create new account</h2>
+                </div>
+                <div class="modal-body">
+                  <form id="register-form">
+                    <input id="register-username" type="text" class="form-control mb-3" placeholder="Username" />
+                    <p id="username-error" class="text-danger"></p>
+                    <input id="register-password" type="password" class="form-control mb-3" placeholder="Password" />
+                    <p id="password-error" class="text-danger"></p>
+                    <p id="register-message"></p>
+                    <button type="submit" class="btn btn-light">Register</button>
+                  </form>
+                </div>
+              </div>
+
+              <!-- LOGGED IN ACCOUNT -->
+              <div id="account-content" class="d-none">
+                <div class="modal-header border-bottom-0 mt-4">
+                  <h2 class="modal-title">My account</h2>
+                  <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body pb-5">
+                  <!-- link list -->
+                  <ul class="list-unstyled d-flex flex-column gap-1">
+                    <li>
+                      <a href="settings.html" class="link-hover d-block text-decoration-none text-reset">Settings</a>
+                    </li>
+                    <li>
+                      <a href="library.html" class="link-hover admin-menu-item d-none text-decoration-none text-reset"
+                        >Book library</a
+                      >
+                    </li>
+                    <li>
+                      <a href="users.html" class="link-hover admin-menu-item d-none text-decoration-none text-reset"
+                        >All users</a
+                      >
+                    </li>
+                  </ul>
+                  <!-- log out button -->
+                  <div class="d-flex justify-content-center mt-4">
+                    <button id="logout-btn" class="btn btn-outline-light">Log out</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+
+      <!-- Settings content -->
+      <div class="page-headings mt-5">
+        <!-- Page heading -->
+        <a href="index.html" class="btn back-btn mb-4" aria-label="back to start button">
+          <svg width="17" height="17" viewBox="0 0 17 17" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path
+              d="M15.1421 7.07121C15.2749 7.0689 15.4067 7.09306 15.5301 7.14227C15.6534 7.19148 15.7657 7.26476 15.8604 7.35783C15.9551 7.45091 16.0303 7.56191 16.0817 7.68436C16.133 7.80682 16.1595 7.93827 16.1595 8.07106C16.1595 8.20384 16.133 8.3353 16.0817 8.45775C16.0303 8.58021 15.9551 8.69121 15.8604 8.78428C15.7657 8.87736 15.6534 8.95064 15.5301 8.99985C15.4067 9.04906 15.2749 9.07321 15.1421 9.07091L3.41402 9.07091L8.77813 14.435C8.96567 14.6226 9.07102 14.8769 9.07102 15.1421C9.07102 15.4073 8.96567 15.6617 8.77813 15.8492C8.59059 16.0368 8.33624 16.1421 8.07102 16.1421C7.80581 16.1421 7.55145 16.0368 7.36392 15.8492L0.292848 8.77816C0.105312 8.59063 -4.46524e-05 8.33627 -4.46524e-05 8.07106C-4.46524e-05 7.80584 0.105312 7.55149 0.292848 7.36395L7.36392 0.292883C7.55145 0.105347 7.80581 -1.00522e-05 8.07102 -1.00522e-05C8.33624 -1.00522e-05 8.59059 0.105347 8.77813 0.292883C8.96567 0.48042 9.07102 0.734774 9.07102 0.99999C9.07102 1.26521 8.96567 1.51956 8.77813 1.7071L3.41402 7.07121L15.1421 7.07121Z"
+              fill="#F5EEEE"
+            />
+          </svg>
+        </a>
+        <!-- BACK LINK -->
+        <h1 class="m-0">My account settings</h1>
+      </div>
+      <!-- my info -->
+      <section class="mt-3 d-flex gap-4">
+        <div class="d-flex align-items-center gap-1">
+          <small class="text-info">Username:</small>
+          <small id="account-username" class="fs-6 mb-0"></small>
+        </div>
+
+        <div class="d-flex align-items-center gap-1">
+          <small class="text-info">Member since:</small>
+          <p id="account-created" class="fs-6 mb-0"></p>
+        </div>
+      </section>
+      <!-- edit account -->
+      <section class="edit-account mt-3 d-flex flex-column">
+        <h2 class="mb-3">Edit account</h2>
+
+        <form id="edit-account-form">
+          <input id="edit-username" type="text" class="form-control mb-3 max-width-form" placeholder="New username" />
+
+          <input
+            id="edit-password"
+            type="password"
+            class="form-control mb-4 max-width-form"
+            placeholder="New password"
+            autocomplete="new-password"
+          />
+          <div class="d-flex gap-4 mb-2 align-items-center">
+            <button type="submit" class="btn btn-info">Save changes</button>
+            <button
+              type="button"
+              id="delete-account-btn"
+              data-bs-toggle="modal"
+              data-bs-target="#delete-account-modal"
+              class="btn btn-light"
+            >
+              Delete account
+            </button>
+            <p id="edit-account-msg" class="text-info invisible mb-0">Account updated!</p>
+          </div>
+        </form>
+      </section>
+
+      <!-- Delete account modal -->
+      <div class="delete-account-modal modal" id="delete-account-modal" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-content p-3">
+            <p class="">Are you sure you want to delete your account? Please enter your password to continue.</p>
+            <input
+              type="password"
+              id="delete-account-password"
+              class="form-control"
+              placeholder="Password"
+              autocomplete="current-password"
+            />
+            <div class="d-flex gap-3 mt-4">
+              <button type="button" data-bs-dismiss="modal" class="btn btn-light cancel">Cancel</button>
+              <button type="button" id="confirm-delete-account-btn" class="btn btn-outline-danger delete">
+                Delete
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- FOOTER -->
+      <footer class="site-footer mt-5 py-4 border-top">
+        <div class="container">
+          <div class="row align-items-center">
+            <div class="col-md-6">
+              <h2 class="m-0 lh-1 text-uppercase">Bookmark</h2>
+              <p class="mb-0">Discover your next favorite book.</p>
+            </div>
+
+            <div class="col-md-6 text-md-end mt-3 mt-md-0">
+              <p class="mb-0">&copy; 2026 Bookmark</p>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </main>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
+    <script src="js/functions.js"></script>
+    <script src="js/login.js"></script>
+    <script src="js/register.js"></script>
+    <script src="js/logout.js"></script>
+    <script src="js/settings.js"></script>
+  </body>
+</html>
