@@ -16,6 +16,11 @@ async function getCurrentUser() {
 function togglePassword() {
   const passwordInput = document.getElementById('login-password');
   const togglePasswordBtn = document.querySelector('.toggle-password');
+
+  if (!passwordInput || !togglePasswordBtn) {
+    return;
+  }
+
   const eyeOpen = togglePasswordBtn.querySelector('.eye-open');
   const eyeClosed = togglePasswordBtn.querySelector('.eye-closed');
 
@@ -33,4 +38,5 @@ function togglePassword() {
     }
   });
 }
+
 togglePassword();
