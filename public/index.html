@@ -78,9 +78,23 @@
 
                 <div class="modal-body">
                   <form id="login-form">
-                    <input id="login-username" type="text" class="form-control mb-3" placeholder="Username" />
+                    <input
+                      id="login-username"
+                      name="username"
+                      type="text"
+                      class="form-control mb-3"
+                      placeholder="Username"
+                      autocomplete="username"
+                    />
                     <div class="d-flex align-items-center gap-2 mb-3">
-                      <input id="login-password" type="password" class="form-control" placeholder="Password" />
+                      <input
+                        id="login-password"
+                        name="password"
+                        type="password"
+                        class="form-control"
+                        placeholder="Password"
+                        autocomplete="current-password"
+                      />
                       <button type="button" class="btn toggle-password" aria-label="Show password">
                         <!-- show -->
                         <svg
@@ -127,9 +141,21 @@
                 </div>
                 <div class="modal-body">
                   <form id="register-form">
-                    <input id="register-username" type="text" class="form-control mb-3" placeholder="Username" />
+                    <input
+                      id="register-username"
+                      type="text"
+                      class="form-control mb-3"
+                      placeholder="Username"
+                      autocomplete="username"
+                    />
                     <p id="username-error" class="text-danger"></p>
-                    <input id="register-password" type="password" class="form-control mb-3" placeholder="Password" />
+                    <input
+                      id="register-password"
+                      type="password"
+                      class="form-control mb-3"
+                      placeholder="Password"
+                      autocomplete="new-password"
+                    />
                     <p id="password-error" class="text-danger"></p>
                     <p id="register-message"></p>
                     <button type="submit" class="btn btn-light">Register</button>
