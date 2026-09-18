@@ -29,16 +29,26 @@ app.use('/api/reviews', reviewRouter);
 app.use('/api/books', bookRouter);
 
 // Connect To DB
+// Connect to DB
 import mongoose from 'mongoose';
 
-mongoose
-  .connect(process.env.MONGODB_URL || '')
-  .then(() => {
-    console.log('Connected to MöngoDB');
-  })
-  .catch(error => {
+async function connectDB() {
+  if (mongoose.connection.readyState === 1) {
+    return;
+  }
+
+  try {
+    await mongoose.connect(process.env.MONGODB_URL || '', {
+      maxPoolSize: 5,
+    });
+
+    console.log('Connected to MongoDB');
+  } catch (error) {
     console.log('MongoDB connection error:', error);
-  });
+  }
+}
+
+connectDB();
 
 // Start the express server
 const PORT = process.env.PORT || 3000;
